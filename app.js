@@ -15,7 +15,8 @@ let message = req.body.message;
 console.log("message: ", message);
 
 let transporter = mailer.createTransport({
-    service: "Gmail",
+    host: "smtp.gmail.com",
+    port: 465,
 auth: {
 user: "aksp89@gmail.com",
 pass: "GmailAK@19/06/89."
