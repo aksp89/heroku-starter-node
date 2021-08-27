@@ -2,10 +2,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mailer = require("nodemailer");
 
+const userRoutes = require("./routes/user");
+
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.use("/user", userRoutes);
 app.get("/", (req, res) => {
 res.send("app working");
 });
@@ -22,7 +25,7 @@ user: "aksp89@gmail.com",
 pass: "GmailAK@19/06/89."
 },
 tls: {
-    rejectUnauthorized: false
+    rejectUnauthorized: true
 }
 });
 
